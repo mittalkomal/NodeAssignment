@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+<body>
+  <br>
+  <br>
+     <form action="/blogs" method="POST">
+        <input type="text" name="titleOfBlog" placeholder="Enter Title" required>
+        <br><br>
+        <label for="blogType">Category:</label>
+        <select name="blogType" name="categoryOfBlog">
+        <option value="entertainment">Entertainment</option>
+         <option value="technology">Technology</option>
+         <option value="android">Android</option>
+         <option value="DSA">DSA</option>
+         <option value="web">Web</option>
+        </select>
+        <br><br>
+        <input type="email" name="email" placeholder="Enter enter email" required><br><br>
+        <input type="text" name="author" placeholder="Enter author name" required><br><br>
+        <input type="date" name="dateOfBlog" placeholder="Enter Date" required><br><br>
+        <textarea id="content" name="content" maxlength="50"> </textarea>
+        <button type="submit">Save Blog!</button>
+        <ul id="blogList"> </ul>
+    </form>
+
+    <ul id="tasklist">
+        {{#each blogs as |x|}}
+            <li>{{x.name}} {{x.titleOfBlog}} {{x.categoryOfBlog}} {{x.email}} {{x.content}} {{x.date}}</li>
+        {{/each}}
+    </ul>
+</body>
+</html>
